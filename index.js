@@ -8,6 +8,7 @@ var password2Warning = document.getElementById('password2-warning');
 var submitError = document.getElementById('submit-error');
 
 
+// The function validates the first name
 function validatefirstName() {
   var name = document.getElementById('firstname').value;
 
@@ -17,10 +18,12 @@ function validatefirstName() {
     return false;
   }
 
+  firstNameWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
   document.getElementById('firstname').style.border = '1px solid green';
   return true;
 }
 
+// The function validates the last name
 function validatelastName() {
   var name = document.getElementById('lastname').value;
 
@@ -30,21 +33,43 @@ function validatelastName() {
     return false;
   }
 
+  lastNameWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
   document.getElementById('lastname').style.border = '1px solid green';
+  return true;
+}
+
+//The function below validates the email address of the user
+function validateEmail() {
+  var Email = document.getElementById('email-address').value;
+
+  if (Email.length == 0) {
+    emailWarning.innerHTML = 'Email address is required';
+    document.getElementById('email-address').style.border = '1px solid red';
+    return false;
+  }
+
+  if(!Email.match(/^[A-Za-z]\.\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+    emailWarning.innerHTML = 'Email is invalid';
+    document.getElementById('email-address').style.border = '1px solid red';
+    return false;
+  }
+
+  emailWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
+  document.getElementById('email-address').style.border = '1px solid green';
   return true;
 }
 
 // the function below is the validator for phone number
 function validatePhone() {
-  var phoneNumber = document.getElementById('phone-number');
+  var phoneNumber = document.getElementById('phone-number').value;
 
-  if (phoneNumber == 0) {
+  if (phoneNumber.length == 0) {
      phoneWarning.innerHTML = 'Phone no is required';
     document.getElementById('phone-number').style.border = '1px solid red';
     return false;
   }
 
-  if (phoneNumber !== 11) {
+  if (phoneNumber.length !== 11) {
      phoneWarning.innerHTML = 'phone no should be 11 digits';
     document.getElementById('phone-number').style.border = '1px solid red';
     return false;
@@ -56,6 +81,7 @@ function validatePhone() {
     return false;
   }
 
+  phoneWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
    document.getElementById('phone-number').style.border = '1px solid green';
    return true;
 }
@@ -81,7 +107,7 @@ function validatefirstPassword() {
   //   document.getElementById('password').style.border = '1px solid red';
   //   return false;
   // }
-
+  passwordWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
   document.getElementById('password').style.border = '1px solid green';
     return true;
 }
@@ -89,11 +115,12 @@ function validatefirstPassword() {
 function validatesecondPassword() {
   var passWord2 = document.getElementById('password2').value;
 
-  if (passWord2 != validatefirstPassword()) {
+  if (passWord2.length != validatefirstPassword()) {
     password2Warning.innerHTML = 'Must be the same as first password'
     document.getElementById('password2').style.border = '1px solid red';
     return false;
   } 
+    password2Warning.innerHTML = '<i class="fas fa-check-circle"></i>';
     document.getElementById('password2').style.border = '1px solid green';
     return true;
 }

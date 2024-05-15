@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form validation - registration</title>
-    
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
 <body>
     <div class="main">
         <h3>Sign up</h3>
@@ -19,7 +19,7 @@
                 <span id="lastname-warning"></span>
             </div>
             <div class="inputs">
-                <input type="email" name="Email" id="email-address" placeholder="Email Address">
+                <input type="email" name="Email" id="email-address" placeholder="Email Address" onkeyup="validateEmail()">
                  <span id="email-warning"></span>
             </div>
             <div class="inputs" id="phone-inputs">
