@@ -1,0 +1,88 @@
+body {
+    background-color: #201919;
+}
+
+.main {
+    background-color: #4c7da8;
+    text-align: center;
+    border: 0;
+    border-radius: 50px;
+    padding: 10px;
+    margin: 5% 25% 5% 25%;
+}
+
+.main h3 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    margin-top: -20px;
+    width: 100px;
+    box-shadow: 0 0 2px 2px rgba(0, 255, 0, 0.5);
+    /* Use transition for a simpler grow effect */
+    transition: box-shadow 0.5s ease;
+}
+
+.main h3:hover {
+    box-shadow: 0 0 5px 5px rgba(0, 255, 0, 0.8);
+}
+
+#input-form {
+    margin: 10px 50px 10px 50px;
+    padding: 0 10px 0 50px;
+}
+
+.inputs {
+    display: flex;
+    align-items: center;
+    /* Add some space between inputs */
+    gap: 10px;
+}
+
+#firstname,
+#lastname,
+#email-address,
+#phone-number,
+#date-of-birth,
+#password,
+#password2 {
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    background: none;
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 400px;
+    color: #fff;
+    outline: 0;
+}
+
+#firstname-warning,
+#lastname-warning,
+#email-warning,
+#phone-warning,
+#dob-warning,
+#password-warning,
+#password2-warning {
+    /* More specific selector for warnings */
+    font-size: 10px;
+    color: #ff0000;
+    /* Use flexbox for positioning */
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    /* Adjust spacing as needed */
+}
+
+#signup {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background: green;
+    margin: 3px;
+    width: 250px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation - registration</title>
+    
+    <link rel="stylesheet" href="style.css">
+<body>
+    <div class="main">
+        <h3>Sign up</h3>
+        <form id="input-form" method="get">
+            <div class="inputs">
+                <input type="text" name="Fname" id="firstname" placeholder="Firstname" onkeyup="validatefirstName()">
+                 <span id="firstname-warning"></span>
+            </div>
+            <div class="inputs">
+                <input type="text" name="Lname" id="lastname" placeholder="Lastname" onkeyup="validatelastName()">
+                <span id="lastname-warning"></span>
+            </div>
+            <div class="inputs">
+                <input type="email" name="Email" id="email-address" placeholder="Email Address">
+                 <span id="email-warning">Enter correct email-address</span>
+            </div>
+            <div class="inputs" id="phone-inputs">
+                <input type="tel" name="Pnumber" id="phone-number" placeholder="Phone Number" onkeyup="validatePhone()">
+                <span id="phone-warning"></span>
+            </div>
+            <div class="inputs">
+                <input type="date" name="DOB" id="date-of-birth">
+                <span id="dob-warning">Select your date-of-birth</span>
+            </div>
+            <div class="inputs">
+            <input type="password" name="Pword" id="password" placeholder="Password" onkeyup="validatefirstPassword()">
+            <span id="password-warning"></span>
+            </div>
+            <div class="inputs">
+                <input type="password" name="Pword" id="password2" placeholder="Confirm Password" onkeyup="validatesecondPassword()">
+                <span id="password2-warning"></span>
+            </div>
+            <button type="submit" id="signup">Sign Up</button>
+        </form>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
