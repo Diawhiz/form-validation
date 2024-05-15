@@ -39,13 +39,19 @@ function validatePhone() {
   var phoneNumber = document.getElementById('phone-number');
 
   if (phoneNumber == 0) {
-     phoneWarning.innerHTML = 'Please enter phone number';
+     phoneWarning.innerHTML = 'Phone no is required';
     document.getElementById('phone-number').style.border = '1px solid red';
     return false;
   }
 
-  if (!phoneNumber.match(/^[0-9]*{11}$/)) {
-    phoneWarning.innerHTML = 'Phone number must be 11 digits';
+  if (phoneNumber !== 11) {
+     phoneWarning.innerHTML = 'phone no should be 11 digits';
+    document.getElementById('phone-number').style.border = '1px solid red';
+    return false;
+  }
+
+  if (!phoneNumber.match(/^[0-9]{11}$/)) {
+    phoneWarning.innerHTML = 'Only digits please';
     document.getElementById('phone-number').style.border = '1px solid red';
     return false;
   }
@@ -59,7 +65,7 @@ function validatefirstPassword() {
   var passWord = document.getElementById('password').value;
 
   if (passWord.length == 0) {
-    passwordWarning.innerHTML = 'Please enter your password';
+    passwordWarning.innerHTML = 'Password is required';
     document.getElementById('password').style.border = '1px solid red';
     return false;
   }

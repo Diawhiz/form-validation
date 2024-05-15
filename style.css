@@ -57,13 +57,7 @@ body {
     outline: 0;
 }
 
-#firstname-warning,
-#lastname-warning,
-#email-warning,
-#phone-warning,
-#dob-warning,
-#password-warning,
-#password2-warning {
+.inputs span {
     /* More specific selector for warnings */
     font-size: 10px;
     color: #ff0000;
