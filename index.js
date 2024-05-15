@@ -123,19 +123,6 @@ function validatePassword() {
     return true;
 }
 
-// function validatesecondPassword() {
-//   var passWord2 = document.getElementById('password2').value;
-
-//   if (passWord2 != validatefirstPassword()) {
-//     password2Warning.innerHTML = 'Must be the same as first password'
-//     document.getElementById('password2').style.border = '1px solid red';
-//     return false;
-//   } 
-//     password2Warning.innerHTML = '<i class="fas fa-check-circle"></i>';
-//     document.getElementById('password2').style.border = '1px solid green';
-//     return true;
-// }
-
 function validateForm() {
   if (!validatefirstName() || !validatelastName() || !validateEmail() || !validatePhone() || !validatefirstPassword() || !validatesecondPassword()) {
     submitError.innerHTML = 'Please fix all error'
