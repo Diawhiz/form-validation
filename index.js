@@ -102,11 +102,11 @@ function validatefirstPassword() {
     return false;
   }
 
-  // if (!passWord.match(/^[A-Za-z]\._\-[0-9]{2, 4}$/)) {
-  //   passwordWarning.innerHTML = 'Password must contain letter, symbol & number';
-  //   document.getElementById('password').style.border = '1px solid red';
-  //   return false;
-  // }
+  if (!passWord.match(/^[A-Za-z]\.\-[0-9]{2, 4}$/)) {
+    passwordWarning.innerHTML = 'Password must contain letter, symbol & number';
+    document.getElementById('password').style.border = '1px solid red';
+    return false;
+  }
   passwordWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
   document.getElementById('password').style.border = '1px solid green';
     return true;
