@@ -77,12 +77,17 @@ body {
     /* Adjust spacing as needed */
 }
 
+#submit-error {
+    font-size: 10px;
+    color: #ff0000;
+}
+
 #signup {
     padding: 10px;
     border: none;
     border-radius: 20px;
     background: green;
-    margin: 3px;
+    margin: 1px;
     width: 250px;
     color: #fff;
     text-transform: uppercase;

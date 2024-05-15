@@ -48,11 +48,11 @@ function validateEmail() {
     return false;
   }
 
-  if(!Email.match(/^[A-Za-z]\.\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-    emailWarning.innerHTML = 'Email is invalid';
-    document.getElementById('email-address').style.border = '1px solid red';
-    return false;
-  }
+  // if (!Email.match(/^[A-Za-z]\._\-[0-9]*[@] [A-Za-z]*[\.][a-z]{2,4}$/)) {
+  //   emailWarning.innerHTML = 'Email is invalid';
+  //   document.getElementById('email-address').style.border = '1px solid red';
+  //   return false;
+  // }
 
   emailWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
   document.getElementById('email-address').style.border = '1px solid green';
@@ -87,8 +87,9 @@ function validatePhone() {
 }
 
 // The function below validates user password.
-function validatefirstPassword() {
+function validatePassword() {
   var passWord = document.getElementById('password').value;
+  var passWord2 = document.getElementById('password2').value;
 
   if (passWord.length == 0) {
     passwordWarning.innerHTML = 'Password is required';
@@ -102,25 +103,47 @@ function validatefirstPassword() {
     return false;
   }
 
-  if (!passWord.match(/^[A-Za-z]\.\-[0-9]{2, 4}$/)) {
-    passwordWarning.innerHTML = 'Password must contain letter, symbol & number';
-    document.getElementById('password').style.border = '1px solid red';
+  // if (!passWord.match(/^[A-Za-z]\._\-[0-9]{2, 4}$/)) {
+  //   passwordWarning.innerHTML = 'Password must contain letter, symbol & number';
+  //   document.getElementById('password').style.border = '1px solid red';
+  //   return false;
+  // }
+
+  if (passWord != passWord2) {
+    password2Warning.innerHTML = 'Must be the same as first password'
+    document.getElementById('password2').style.border = '1px solid red';
     return false;
+  } else {
+    password2Warning.innerHTML = '<i class="fas fa-check-circle"></i>';
+    document.getElementById('password2').style.border = '1px solid green';
   }
+
   passwordWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
   document.getElementById('password').style.border = '1px solid green';
     return true;
 }
 
-function validatesecondPassword() {
-  var passWord2 = document.getElementById('password2').value;
+// function validatesecondPassword() {
+//   var passWord2 = document.getElementById('password2').value;
 
-  if (passWord2.length != validatefirstPassword()) {
-    password2Warning.innerHTML = 'Must be the same as first password'
-    document.getElementById('password2').style.border = '1px solid red';
+//   if (passWord2 != validatefirstPassword()) {
+//     password2Warning.innerHTML = 'Must be the same as first password'
+//     document.getElementById('password2').style.border = '1px solid red';
+//     return false;
+//   } 
+//     password2Warning.innerHTML = '<i class="fas fa-check-circle"></i>';
+//     document.getElementById('password2').style.border = '1px solid green';
+//     return true;
+// }
+
+function validateForm() {
+  if (!validatefirstName() || !validatelastName() || !validateEmail() || !validatePhone() || !validatefirstPassword() || !validatesecondPassword()) {
+    submitError.innerHTML = 'Please fix all error'
+    document.getElementById('signup').style.border = '1px solid red'
+      setTimeout(() => {
+        submitError.style.display ='none';
+        document.getElementById('signup').style.border = 'none';
+  }, 3000);
     return false;
-  } 
-    password2Warning.innerHTML = '<i class="fas fa-check-circle"></i>';
-    document.getElementById('password2').style.border = '1px solid green';
-    return true;
+  }
 }
