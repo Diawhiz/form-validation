@@ -77,6 +77,14 @@ body {
     /* Adjust spacing as needed */
 }
 
+.inputs span i {
+    width: 30px;
+    height: auto;
+    margin-left: -50px;
+    margin-top: -10px;
+    color: green;
+}
+
 #submit-error {
     font-size: 10px;
     color: #ff0000;

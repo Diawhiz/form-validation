@@ -17,8 +17,7 @@ function validatefirstName() {
     document.getElementById('firstname').style.border = '1px solid red';
     return false;
   }
-
-  firstNameWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
+  firstNameWarning.innerHTML = '<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>';
   document.getElementById('firstname').style.border = '1px solid green';
   return true;
 }
@@ -32,8 +31,7 @@ function validatelastName() {
     document.getElementById('lastname').style.border = '1px solid red';
     return false;
   }
-
-  lastNameWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
+  lastNameWarning.innerHTML = '<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>';
   document.getElementById('lastname').style.border = '1px solid green';
   return true;
 }
@@ -53,8 +51,7 @@ function validateEmail() {
     document.getElementById('email-address').style.border = '1px solid red';
     return false;
 }
-
-  emailWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
+  emailWarning.innerHTML = '<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>';
   document.getElementById('email-address').style.border = '1px solid green';
   return true;
 }
@@ -80,8 +77,7 @@ function validatePhone() {
     document.getElementById('phone-number').style.border = '1px solid red';
     return false;
   }
-
-  phoneWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
+  phoneWarning.innerHTML = '<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>';
    document.getElementById('phone-number').style.border = '1px solid green';
    return true;
 }
@@ -113,8 +109,7 @@ function validatePassword() {
     document.getElementById('password').style.border = '1px solid red';
     return false;
   }
-
-  passwordWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
+  passwordWarning.innerHTML = '<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>';
   document.getElementById('password').style.border = '1px solid green';
 
 
@@ -123,7 +118,7 @@ function validatePassword() {
     document.getElementById('password2').style.border = '1px solid red';
     return false;
   } else {
-    password2Warning.innerHTML = '<i class="fas fa-check-circle"></i>';
+    password2Warning.innerHTML = '<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>';
     document.getElementById('password2').style.border = '1px solid green';
   }
 }
