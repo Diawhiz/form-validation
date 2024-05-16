@@ -48,11 +48,11 @@ function validateEmail() {
     return false;
   }
 
-  // if (!Email.match(/^[A-Za-z]\._\-[0-9]*[@] [A-Za-z]*[\.][a-z]{2,4}$/)) {
-  //   emailWarning.innerHTML = 'Email is invalid';
-  //   document.getElementById('email-address').style.border = '1px solid red';
-  //   return false;
-  // }
+  if (!Email.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+    emailWarning.innerHTML = 'Email is invalid';
+    document.getElementById('email-address').style.border = '1px solid red';
+    return false;
+}
 
   emailWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
   document.getElementById('email-address').style.border = '1px solid green';
