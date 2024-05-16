@@ -91,23 +91,32 @@ function validatePassword() {
   var passWord = document.getElementById('password').value;
   var passWord2 = document.getElementById('password2').value;
 
+  const hasUppercase = /[A-Z]/.test(passWord);
+  const hasLowercase = /[a-z]/.test(passWord);
+  const hasNumber = /[0-9]/.test(passWord);
+  const hasSpecialChar = /[!@#$%^&*]/.test(passWord);
+
   if (passWord.length == 0) {
     passwordWarning.innerHTML = 'Password is required';
     document.getElementById('password').style.border = '1px solid red';
     return false;
   }
 
-  if (passWord.length <= 7) {
+  if (passWord.length < 8) {
     passwordWarning.innerHTML = 'Password must be atleast 8 character long';
     document.getElementById('password').style.border = '1px solid red';
     return false;
   }
+  
+  if (!hasUppercase || !hasLowercase || !hasNumber || !hasSpecialChar) {
+    passwordWarning.innerHTML = 'Password must contain capital, small letter, number and special character';
+    document.getElementById('password').style.border = '1px solid red';
+    return false;
+  }
 
-  // if (!passWord.match(/^[A-Za-z]\._\-[0-9]{2, 4}$/)) {
-  //   passwordWarning.innerHTML = 'Password must contain letter, symbol & number';
-  //   document.getElementById('password').style.border = '1px solid red';
-  //   return false;
-  // }
+  passwordWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
+  document.getElementById('password').style.border = '1px solid green';
+
 
   if (passWord != passWord2) {
     password2Warning.innerHTML = 'Must be the same as first password'
@@ -117,10 +126,6 @@ function validatePassword() {
     password2Warning.innerHTML = '<i class="fas fa-check-circle"></i>';
     document.getElementById('password2').style.border = '1px solid green';
   }
-
-  passwordWarning.innerHTML = '<i class="fas fa-check-circle"></i>';
-  document.getElementById('password').style.border = '1px solid green';
-    return true;
 }
 
 function validateForm() {
