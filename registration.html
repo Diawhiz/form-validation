@@ -3,44 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form validation - registration</title>
+    <title>Form Validation - Registration</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
+</head>
 <body>
     <div class="main">
-        <h3>Sign up</h3>
-        <form id="input-form" method="get">
+        <h3>Sign Up</h3>
+        <form id="input-form" method="post" onsubmit="return validateForm()" novalidate>
             <div class="inputs">
-                <input type="text" name="Fname" id="firstname" placeholder="Firstname" onkeyup="validatefirstName()">
-                 <span id="firstname-warning"></span>
+                <input type="text" name="Fname" id="firstname" placeholder="Firstname" onkeyup="validateFirstName()">
+                <span id="firstname-warning"></span>
             </div>
             <div class="inputs">
-                <input type="text" name="Lname" id="lastname" placeholder="Lastname" onkeyup="validatelastName()">
+                <input type="text" name="Lname" id="lastname" placeholder="Lastname" onkeyup="validateLastName()">
                 <span id="lastname-warning"></span>
             </div>
             <div class="inputs">
                 <input type="email" name="Email" id="email-address" placeholder="Email Address" onkeyup="validateEmail()">
-                 <span id="email-warning"></span>
+                <span id="email-warning"></span>
             </div>
             <div class="inputs" id="phone-inputs">
                 <input type="tel" name="Pnumber" id="phone-number" placeholder="Phone Number" onkeyup="validatePhone()">
                 <span id="phone-warning"></span>
             </div>
             <div class="inputs">
-                <input type="date" name="DOB" id="date-of-birth">
+                <input type="date" name="DOB" id="date-of-birth" onblur="validateDOB()">
                 <span id="dob-warning"></span>
             </div>
             <div class="inputs">
-            <input type="password" name="Pword" id="password" placeholder="Password" onkeyup="validatePassword()">
-            <span id="password-warning"></span>
+                <input type="password" name="Pword" id="password" placeholder="Password" onkeyup="validatePassword()">
+                <span id="password-warning"></span>
             </div>
             <div class="inputs">
-                <input type="password" name="Pword" id="password2" placeholder="Confirm Password" onkeyup="validatePassword()">
+                <input type="password" name="Pword2" id="password2" placeholder="Confirm Password" onkeyup="validatePassword()">
                 <span id="password2-warning"></span>
             </div>
-            <span id="submit-error"></span> <br>
-            <button type="submit" id="signup" onclick="return validateForm()">Sign Up</button>
+            <span id="submit-error"></span><br>
+            <button type="submit" id="signup">Sign Up</button>
         </form>
     </div>
     
