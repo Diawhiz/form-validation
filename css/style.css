@@ -85,6 +85,14 @@ body {
     color: green;
 }
 
+#eye {
+    width: 30px;
+    height: auto;
+    margin-left: -70px;
+    margin-top: -10px;
+    color: #fff;
+}
+
 #submit-error {
     font-size: 10px;
     color: #ff0000;

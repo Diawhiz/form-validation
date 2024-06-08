@@ -7,6 +7,7 @@ var dobWarning = document.getElementById('dob-warning');
 var passwordWarning = document.getElementById('password-warning');
 var password2Warning = document.getElementById('password2-warning');
 var submitError = document.getElementById('submit-error');
+var showPassword = document.getElementById('eye');
 
 // Validate the first name
 function validateFirstName() {
@@ -86,21 +87,22 @@ function validatePhone() {
 
 // Validate the password
 function validatePassword() {
-    var password = document.getElementById('password').value;
-    var password2 = document.getElementById('password2').value;
+    var passwordInput = document.getElementById('password').value;
+    var passwordInput2 = document.getElementById('password2').value;
 
-    const hasUppercase = /[A-Z]/.test(password);
-    const hasLowercase = /[a-z]/.test(password);
-    const hasNumber = /[0-9]/.test(password);
-    const hasSpecialChar = /[!@#$%^&*]/.test(password);
+    //The code below checks the code to contain sequences of character.
+    const hasUppercase = /[A-Z]/.test(passwordInput);
+    const hasLowercase = /[a-z]/.test(passwordInput);
+    const hasNumber = /[0-9]/.test(passwordInput);
+    const hasSpecialChar = /[!@#$%^&*]/.test(passwordInput);
 
-    if (password.length === 0) {
+    if (passwordInput.length === 0) {
         passwordWarning.innerHTML = 'Password is required';
         document.getElementById('password').style.border = '1px solid red';
         return false;
     }
 
-    if (password.length < 8) {
+    if (passwordInput.length < 8) {
         passwordWarning.innerHTML = 'Password must be at least 8 characters long';
         document.getElementById('password').style.border = '1px solid red';
         return false;
@@ -113,16 +115,31 @@ function validatePassword() {
     }
     passwordWarning.innerHTML = '<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>';
     document.getElementById('password').style.border = '1px solid green';
+    document.getElementById('eye').style.display = 'none';
 
-    if (password !== password2) {
+    if (passwordInput !== passwordInput2) {
         password2Warning.innerHTML = 'Passwords must match';
         document.getElementById('password2').style.border = '1px solid red';
         return false;
+    } else {
+        password2Warning.innerHTML = '<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>';
+        document.getElementById('password2').style.border = '1px solid green';
+        document.getElementById('eye').style.display = 'none';
     }
-    password2Warning.innerHTML = '<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>';
-    document.getElementById('password2').style.border = '1px solid green';
     return true;
 }
+    
+showPassword.addEventListener('click', () => {
+    var passwordInput = document.getElementById('password');
+    var passwordInput2 = document.getElementById('password2');
+    
+    if (passwordInput.type === 'password' || passwordInput2.type === 'password') {
+        passwordInput.type = 'text';
+    } else {
+        passwordInput.type = 'password';
+        showPassword.innerHTML = '<i class="fa fa-eye-slash fa-lg" aria-hidden="true"></i>';
+    }
+});
 
 // Validate the date of birth (optional, but good to include)
 function validateDOB() {
