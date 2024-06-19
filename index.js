@@ -8,13 +8,14 @@ var passwordWarning = document.getElementById('password-warning');
 var password2Warning = document.getElementById('password2-warning');
 var submitError = document.getElementById('submit-error');
 var showPassword = document.getElementById('eye');
+var showPassword2 = document.getElementById('eye2');
 
 // Validate the first name
 function validateFirstName() {
     var name = document.getElementById('firstname').value;
 
     if (name.length === 0) {
-        firstNameWarning.innerHTML = 'Firstname is required';
+        submitError.innerHTML = 'Firstname is required';
         document.getElementById('firstname').style.border = '1px solid red';
         return false;
     }
@@ -28,7 +29,7 @@ function validateLastName() {
     var name = document.getElementById('lastname').value;
 
     if (name.length === 0) {
-        lastNameWarning.innerHTML = 'Lastname is required';
+        submitError.innerHTML = 'Lastname is required';
         document.getElementById('lastname').style.border = '1px solid red';
         return false;
     }
@@ -42,14 +43,14 @@ function validateEmail() {
     var email = document.getElementById('email-address').value;
 
     if (email.length === 0) {
-        emailWarning.innerHTML = 'Email address is required';
+        submitError.innerHTML = 'Email address is required';
         document.getElementById('email-address').style.border = '1px solid red';
         return false;
     }
 
     var emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (!email.match(emailPattern)) {
-        emailWarning.innerHTML = 'Email is invalid';
+        submitError.innerHTML = 'Email is invalid';
         document.getElementById('email-address').style.border = '1px solid red';
         return false;
     }
@@ -63,20 +64,20 @@ function validatePhone() {
     var phoneNumber = document.getElementById('phone-number').value;
 
     if (phoneNumber.length === 0) {
-        phoneWarning.innerHTML = 'Phone number is required';
+        submitError.innerHTML = 'Phone number is required';
         document.getElementById('phone-number').style.border = '1px solid red';
         return false;
     }
 
     if (phoneNumber.length !== 11) {
-        phoneWarning.innerHTML = 'Phone number should be 11 digits';
+        submitError.innerHTML = 'Phone number should be 11 digits';
         document.getElementById('phone-number').style.border = '1px solid red';
         return false;
     }
 
     var phonePattern = /^[0-9]{11}$/;
     if (!phoneNumber.match(phonePattern)) {
-        phoneWarning.innerHTML = 'Only digits please';
+        submitError.innerHTML = 'Only digits please';
         document.getElementById('phone-number').style.border = '1px solid red';
         return false;
     }
@@ -97,34 +98,32 @@ function validatePassword() {
     const hasSpecialChar = /[!@#$%^&*]/.test(passwordInput);
 
     if (passwordInput.length === 0) {
-        passwordWarning.innerHTML = 'Password is required';
+        submitError.innerHTML = 'Password is required';
         document.getElementById('password').style.border = '1px solid red';
         return false;
     }
 
     if (passwordInput.length < 8) {
-        passwordWarning.innerHTML = 'Password must be at least 8 characters long';
+        submitError.innerHTML = 'Password must be at least 8 characters long';
         document.getElementById('password').style.border = '1px solid red';
         return false;
     }
 
     if (!hasUppercase || !hasLowercase || !hasNumber || !hasSpecialChar) {
-        passwordWarning.innerHTML = 'Password must contain uppercase, lowercase, number, and special character';
+        submitError.innerHTML = 'Password must contain uppercase, lowercase, number, and special character';
         document.getElementById('password').style.border = '1px solid red';
         return false;
     }
     passwordWarning.innerHTML = '<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>';
     document.getElementById('password').style.border = '1px solid green';
-    document.getElementById('eye').style.display = 'none';
 
     if (passwordInput !== passwordInput2) {
-        password2Warning.innerHTML = 'Passwords must match';
+        submitError.innerHTML = 'Passwords must match';
         document.getElementById('password2').style.border = '1px solid red';
         return false;
     } else {
         password2Warning.innerHTML = '<i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>';
         document.getElementById('password2').style.border = '1px solid green';
-        document.getElementById('eye').style.display = 'none';
     }
     return true;
 }
@@ -133,20 +132,35 @@ showPassword.addEventListener('click', () => {
     var passwordInput = document.getElementById('password');
     var passwordInput2 = document.getElementById('password2');
     
-    if (passwordInput.type === 'password' || passwordInput2.type === 'password') {
-        passwordInput.type = 'text';
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text'; // Add this line to toggle visibility
+        showPassword.innerHTML = '<i class="fa fa-eye-slash fa-lg" aria-hidden="true"></i>'; // Change icon to eye slash
     } else {
-        passwordInput.type = 'password';
-        showPassword.innerHTML = '<i class="fa fa-eye-slash fa-lg" aria-hidden="true"></i>';
+        passwordInput.type = 'password'; // Add this line to toggle visibility
+        showPassword.innerHTML = '<i class="fa fa-eye fa-lg" aria-hidden="true"></i>'; // Change icon to eye
     }
 });
+
+
+showPassword2.addEventListener('click', () => {
+    var passwordInput2 = document.getElementById('password2');
+
+     if (passwordInput2.type === 'password') {
+        passwordInput2.type = 'text'; // Add this line to toggle visibility
+        showPassword2.innerHTML = '<i class="fa fa-eye-slash fa-lg" aria-hidden="true"></i>';
+    } else {
+        passwordInput2.type = 'password'; // Add this line to toggle visibility
+        showPassword2.innerHTML = '<i class="fa fa-eye fa-lg" aria-hidden="true"></i>'; // Change icon to eye
+    }
+});
+
 
 // Validate the date of birth (optional, but good to include)
 function validateDOB() {
     var dob = document.getElementById('date-of-birth').value;
 
     if (dob.length === 0) {
-        dobWarning.innerHTML = 'Date of birth is required';
+        submitError.innerHTML = 'Date of birth is required';
         document.getElementById('date-of-birth').style.border = '1px solid red';
         return false;
     }

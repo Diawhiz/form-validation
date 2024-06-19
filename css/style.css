@@ -77,15 +77,15 @@ body {
     /* Adjust spacing as needed */
 }
 
-.inputs span i {
+/* .inputs span i {
     width: 30px;
     height: auto;
     margin-left: -50px;
     margin-top: -10px;
     color: green;
-}
+} */
 
-#eye {
+.inputs span i  {
     width: 30px;
     height: auto;
     margin-left: -70px;
